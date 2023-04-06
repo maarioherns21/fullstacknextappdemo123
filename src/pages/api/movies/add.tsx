@@ -5,14 +5,18 @@ import Tape from "../../../../model/movies"
 
 const handler:(req: any, res: any) => Promise<void>  = async (req , res) => {
 
-try {
-    if(req.method === "POST") {
-          
+    try {
+
+        if(req.method ===  "POST") {
+        
+         await connectMongo();
+
         const movie = req.body
 
         const newMovie =  new Tape({ ...movie})
           
         console.log(newMovie)
+
         const data  = await newMovie.save()
 
         res.status(200).json(data)

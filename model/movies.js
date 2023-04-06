@@ -11,7 +11,6 @@ const movieSchema = new Schema({
   createdAt: { type: Date, default: new Date() },
 });
 
-
 const Tape = models.tape || model("tape", movieSchema);
 
 export default Tape;
